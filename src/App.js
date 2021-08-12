@@ -1,7 +1,8 @@
 import './App.css';
+import Roadmap from './pages/roadmap/Roadmap';
 
 function App() {
-	return <div className='App'>hello</div>;
+	return <Roadmap />;
 }
 
 export default App;
