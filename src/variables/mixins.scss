@@ -1,6 +1,8 @@
-$mainGreenColor: rgb(40, 133, 40);
+$mainGreenColor: rgb(62, 52, 78);
 
-@mixin regularText {
+@mixin navText {
 	font-size: 16px;
 	color: $mainGreenColor;
+	margin: 0 30px;
+	text-decoration: none;
 }
