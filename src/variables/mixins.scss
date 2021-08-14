@@ -1,0 +1,6 @@
+$mainGreenColor: rgb(40, 133, 40);
+
+@mixin regularText {
+	font-size: 16px;
+	color: $mainGreenColor;
+}
