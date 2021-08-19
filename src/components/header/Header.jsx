@@ -1,5 +1,5 @@
 import style from './style.module.scss';
-import logo from '@assets/images/spacemachineLogo.png';
+import logo from '@assets/images/moon.png';
 import { Link } from 'react-router-dom';
 
 const Header = () => {

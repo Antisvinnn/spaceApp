@@ -1,8 +1,14 @@
-import Header from '../../components/header/Header';
+import FirstScreen from '../../components/firstScreen/FirstScreen';
 import style from './style.module.scss';
 
 const Main = () => {
-	return <div></div>;
+	return (
+		<>
+			<div className={style.mainContainer}>
+				<FirstScreen />
+			</div>
+		</>
+	);
 };
 
 export default Main;
