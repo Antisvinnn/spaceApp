@@ -10,6 +10,7 @@ const Roadmap = () => {
 			<Header />
 			<Switch>
 				<Route path='/contacts' component={Contacts} />
+				<Route path='/news' component={Contacts} />
 				<Route path='/' component={Main} />
 			</Switch>
 		</React.Fragment>
