@@ -1,13 +1,13 @@
 import { Spin } from 'antd';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import AsteroidItem from '../../components/asteroidItem/AsteroidItem';
 import style from './style.module.scss';
 
 const NewsPage = () => {
 	let { newsPage } = useParams();
 	let newsLoading = useSelector((store) => store.news.loading);
 	let newsData = useSelector((store) => store.news.newsData);
-	console.log(newsData);
 
 	const renderNewsPage = (newsPage) => {
 		if (newsPage === 'Astronomicpictureoftheday') {
@@ -21,7 +21,15 @@ const NewsPage = () => {
 				</div>
 			);
 		} else if (newsPage === 'Asteroids-NeoWs') {
-			return <div>Asteroids</div>;
+			let asteroids = newsData.data.near_earth_objects.map((element, index) => (
+				<AsteroidItem
+					name={element.name}
+					diameter={element.estimated_diameter.kilometers.estimated_diameter_min}
+					magnitude={element.absolute_magnitude_h}
+					key={index}
+				/>
+			));
+			return <div className={style.asteroidsContainer}>{asteroids}</div>;
 		}
 	};
 
