@@ -1,6 +1,10 @@
 import axios from 'axios';
 import { apiKey } from '../../helper/apiKey';
 
-export const newsRequest = () => {
-	return axios.get(`https://api.nasa.gov/planetary/apod?${apiKey}`);
+export const APODRequest = () => {
+	return axios.get(`planetary/apod?${apiKey}`);
+};
+
+export const AsteroidsRequest = () => {
+	return axios.get(`neo/rest/v1/neo/browse/?${apiKey}`);
 };

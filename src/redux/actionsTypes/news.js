@@ -1,1 +1,3 @@
 export const NEWS_REQUEST = 'NEWS_REQUEST';
+export const APOD_REQUEST = 'APOD_REQUEST';
+export const ASTEROID_REQUEST = 'ASTEROID_REQUEST';

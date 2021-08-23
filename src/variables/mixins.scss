@@ -1,6 +1,7 @@
 $mainGreenColor: rgb(62, 52, 78);
 
 @mixin navText {
+	font-family: Semibold600;
 	font-size: 16px;
 	color: $mainGreenColor;
 	margin: 0 30px;

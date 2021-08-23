@@ -142,3 +142,5 @@ h6 {
 	font-size: inherit;
 	font-weight: 400;
 }
+
+@import '~antd/dist/antd.css';
