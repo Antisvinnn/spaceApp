@@ -1,0 +1,12 @@
+.containerToNews {
+	padding: 20px;
+	padding-top: 50px;
+	width: 75%;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-gap: 25px;
+	text-align: center;
+	align-items: center;
+}

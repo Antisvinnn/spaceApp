@@ -1,13 +1,18 @@
 .container {
-	width: 100%;
+	width: 1400px;
+	margin: 0 auto;
 	height: 100%;
-	background: url('../../assets/images/1638152.jpg') center no-repeat;
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 }
 
-.title {
+.introImage {
+	width: 512px;
+	height: 512px;
+	margin-right: 100px;
+}
+
+.introText {
 	font-size: 50px;
-	background-color: rgb(37, 39, 134);
 }
