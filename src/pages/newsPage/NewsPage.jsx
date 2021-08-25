@@ -1,11 +1,22 @@
 import { Spin } from 'antd';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import YouTube from 'react-youtube';
 import AsteroidItem from '../../components/asteroidItem/AsteroidItem';
+import { APODAction, AsteroidAction } from '../../redux/actions/newsAction';
+
 import style from './style.module.scss';
 
 const NewsPage = () => {
+	const dispatch = useDispatch();
+	useEffect(() => {
+		if (newsPage === 'Astronomicpictureoftheday') {
+			dispatch(APODAction());
+		} else if (newsPage === 'Asteroids-NeoWs') {
+			dispatch(AsteroidAction());
+		}
+	}, []);
 	let { newsPage } = useParams();
 	let newsLoading = useSelector((store) => store.news.loading);
 	let newsData = useSelector((store) => store.news.newsData);
@@ -13,7 +24,8 @@ const NewsPage = () => {
 	const renderNewsPage = (newsPage) => {
 		if (
 			newsPage === 'Astronomicpictureoftheday' &&
-			!newsData.data?.url.includes('https://www.youtube.com')
+			// проверить наличие подстроки в строке
+			!newsData.data?.url?.includes('https://www.youtube.com')
 		) {
 			return (
 				<div className={style.containerToAPOD}>
@@ -40,7 +52,7 @@ const NewsPage = () => {
 				</div>
 			);
 		} else if (newsPage === 'Asteroids-NeoWs') {
-			let asteroids = newsData.data.near_earth_objects.map((element, index) => (
+			let asteroids = newsData.data?.near_earth_objects?.map((element, index) => (
 				<AsteroidItem
 					name={element.name}
 					diameter={element.estimated_diameter.kilometers.estimated_diameter_min}

@@ -1,3 +1,4 @@
+import { message } from 'antd';
 import { NEWS_REQUEST, APOD_REQUEST, ASTEROID_REQUEST } from '../actionsTypes/news';
 
 const initialState = {
@@ -14,10 +15,12 @@ const newsReducer = (state = initialState, { type, payload }) => {
 		case APOD_REQUEST:
 			newState.newsData = payload;
 			newState.loading = false;
+			message.success('server responsed');
 			return newState;
 		case ASTEROID_REQUEST:
 			newState.newsData = payload;
 			newState.loading = false;
+			message.success('server responsed');
 			return newState;
 		default:
 			return state;

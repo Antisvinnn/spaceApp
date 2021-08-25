@@ -8,15 +8,25 @@ import NewsPage from '../newsPage/NewsPage';
 
 const Roadmap = () => {
 	return (
-		<React.Fragment>
+		<>
 			<Header />
 			<Switch>
-				<Route path='/news/:newsPage' component={NewsPage} />
+				<Route
+					path='/news/:newsPage'
+					render={() => {
+						return <NewsPage />;
+					}}
+				/>
 				<Route path='/contacts' component={Contacts} />
-				<Route path='/news' component={News} />
+				<Route
+					path='/news'
+					render={() => {
+						return <News />;
+					}}
+				/>
 				<Route path='/' component={Main} />
 			</Switch>
-		</React.Fragment>
+		</>
 	);
 };
 
