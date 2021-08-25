@@ -13,8 +13,8 @@ export const APODAction = () => {
 			dispatch({ type: NEWS_REQUEST });
 			const data = await APODRequest();
 			dispatch({ type: APOD_REQUEST, payload: data });
-		} catch (error) {
-			message.error(error);
+		} catch {
+			message.error('error');
 		}
 	};
 };
@@ -25,8 +25,8 @@ export const AsteroidAction = () => {
 			dispatch({ type: NEWS_REQUEST });
 			const data = await AsteroidsRequest();
 			dispatch({ type: ASTEROID_REQUEST, payload: data });
-		} catch (error) {
-			message.error(error);
+		} catch {
+			message.error('error');
 		}
 	};
 };
@@ -37,8 +37,8 @@ export const EarthImageryAction = (lat, lon, date) => {
 			dispatch({ type: NEWS_REQUEST });
 			const data = await EarthImagery(lat, lon, date);
 			dispatch({ type: EARTH_IMAGERY_REQUEST, payload: data });
-		} catch (error) {
-			message.error(error);
+		} catch {
+			message.error('error');
 		}
 	};
 };

@@ -1,6 +1,7 @@
 import { Spin } from 'antd';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import YouTube from 'react-youtube';
 import AsteroidItem from '../../components/asteroidItem/AsteroidItem';
 import style from './style.module.scss';
 
@@ -10,10 +11,28 @@ const NewsPage = () => {
 	let newsData = useSelector((store) => store.news.newsData);
 
 	const renderNewsPage = (newsPage) => {
-		if (newsPage === 'Astronomicpictureoftheday') {
+		if (
+			newsPage === 'Astronomicpictureoftheday' &&
+			!newsData.data?.url.includes('https://www.youtube.com')
+		) {
 			return (
 				<div className={style.containerToAPOD}>
 					<img className={style.image} src={newsData.data?.url} alt='img' />
+					<div className={style.containerToRight}>
+						<p className={style.title}>Astronomic picture of the day</p>
+						<div className={style.description}>{newsData.data?.explanation}</div>
+					</div>
+				</div>
+			);
+		} else if (
+			newsPage === 'Astronomicpictureoftheday' &&
+			newsData.data?.url.includes('https://www.youtube.com')
+		) {
+			// Оставить в пути только последний элемент (всё что идёт после последнего / )
+			const youtubeVideoID = newsData.data?.url.split('/').pop();
+			return (
+				<div className={style.containerToAPOD}>
+					<YouTube className={style.youtube} videoId={youtubeVideoID} />
 					<div className={style.containerToRight}>
 						<p className={style.title}>Astronomic picture of the day</p>
 						<div className={style.description}>{newsData.data?.explanation}</div>
@@ -31,6 +50,7 @@ const NewsPage = () => {
 			));
 			return <div className={style.asteroidsContainer}>{asteroids}</div>;
 		}
+		// else if (newsPage === 'EarthImagery'){}
 	};
 
 	return (
