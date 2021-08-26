@@ -1,10 +1,16 @@
-import { Spin } from 'antd';
+import { Button, Input, Spin } from 'antd';
+import Form from 'antd/lib/form/Form';
+import FormItem from 'antd/lib/form/FormItem';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import YouTube from 'react-youtube';
 import AsteroidItem from '../../components/asteroidItem/AsteroidItem';
-import { APODAction, AsteroidAction } from '../../redux/actions/newsAction';
+import {
+	APODAction,
+	AsteroidAction,
+	EarthImageryAction,
+} from '../../redux/actions/newsAction';
 
 import style from './style.module.scss';
 
@@ -61,8 +67,35 @@ const NewsPage = () => {
 				/>
 			));
 			return <div className={style.asteroidsContainer}>{asteroids}</div>;
+		} else if (newsPage === 'Earth-Imagery') {
+			return (
+				<div className={style.EarthImageryContainer}>
+					<p className={style.EarthImageryTitle}>
+						{newsPage} - заполните поля для ввода информации
+					</p>
+					<Form
+						onFinish={(values) => {
+							dispatch(EarthImageryAction(values.longitude, values.latitude, values.date));
+						}}
+					>
+						<FormItem name='longitude'>
+							<Input placeholder='Долгота' />
+						</FormItem>
+						<FormItem name='latitude'>
+							<Input placeholder='Широта' />
+						</FormItem>
+						<FormItem name='date'>
+							<Input placeholder='Дата (YYYY-MM-DD)' />
+						</FormItem>
+						<FormItem name='button'>
+							<Button htmlType='submit' type='primary' className={style.EarthImageryButton}>
+								Enter the info
+							</Button>
+						</FormItem>
+					</Form>
+				</div>
+			);
 		}
-		// else if (newsPage === 'EarthImagery'){}
 	};
 
 	return (

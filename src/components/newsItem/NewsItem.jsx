@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import style from './style.module.scss';
 
-const NewsItem = ({ photo, title, description, action, setCount }) => {
+const NewsItem = ({ photo, title, description }) => {
 	// Удалить все пробелы из строки
 	let titleToLink = title.split(' ').join('');
 

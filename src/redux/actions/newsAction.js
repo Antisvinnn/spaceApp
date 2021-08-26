@@ -31,11 +31,12 @@ export const AsteroidAction = () => {
 	};
 };
 
-export const EarthImageryAction = (lat, lon, date) => {
+export const EarthImageryAction = (lon, lat, date) => {
 	return async (dispatch) => {
 		try {
 			dispatch({ type: NEWS_REQUEST });
-			const data = await EarthImagery(lat, lon, date);
+			const data = await EarthImagery(lon, lat, date);
+			console.log(data);
 			dispatch({ type: EARTH_IMAGERY_REQUEST, payload: data });
 		} catch {
 			message.error('error');

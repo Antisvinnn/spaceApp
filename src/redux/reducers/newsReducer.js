@@ -1,5 +1,10 @@
 import { message } from 'antd';
-import { NEWS_REQUEST, APOD_REQUEST, ASTEROID_REQUEST } from '../actionsTypes/news';
+import {
+	NEWS_REQUEST,
+	APOD_REQUEST,
+	ASTEROID_REQUEST,
+	EARTH_IMAGERY_REQUEST,
+} from '../actionsTypes/news';
 
 const initialState = {
 	loading: false,
@@ -18,6 +23,11 @@ const newsReducer = (state = initialState, { type, payload }) => {
 			message.success('server responsed');
 			return newState;
 		case ASTEROID_REQUEST:
+			newState.newsData = payload;
+			newState.loading = false;
+			message.success('server responsed');
+			return newState;
+		case EARTH_IMAGERY_REQUEST:
 			newState.newsData = payload;
 			newState.loading = false;
 			message.success('server responsed');
