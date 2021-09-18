@@ -11,6 +11,7 @@ import {
 	AsteroidAction,
 	EarthImageryAction,
 } from '../../redux/actions/newsAction';
+import FileSaver from 'file-saver';
 
 import style from './style.module.scss';
 
@@ -23,9 +24,15 @@ const NewsPage = () => {
 			dispatch(AsteroidAction());
 		}
 	}, []);
-	let { newsPage } = useParams();
-	let newsLoading = useSelector((store) => store.news.loading);
-	let newsData = useSelector((store) => store.news.newsData);
+	const { newsPage } = useParams();
+	const newsLoading = useSelector((store) => store.news.loading);
+	const newsData = useSelector((store) => store.news.newsData);
+
+	const decodeImage = () => {
+		const file = new Blob([JSON.stringify(newsData.data)], { type: 'application/*' });
+		FileSaver.saveAs(file, 'picture.png');
+		return <img scr={file} alt='img' />;
+	};
 
 	const renderNewsPage = (newsPage) => {
 		if (
@@ -93,6 +100,7 @@ const NewsPage = () => {
 							</Button>
 						</FormItem>
 					</Form>
+					{newsData.data && decodeImage()}
 				</div>
 			);
 		}
