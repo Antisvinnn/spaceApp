@@ -4,15 +4,17 @@ import style from './style.module.scss';
 
 const News = () => {
 	return (
-		<div className={style.containerToNews}>
-			{newsConfig.map((element, index) => (
-				<NewsItem
-					photo={element.photo}
-					title={element.title}
-					description={element.description}
-					key={index}
-				/>
-			))}
+		<div className={style.newsWrapper}>
+			<div className={style.containerToNews}>
+				{newsConfig.map((element, index) => (
+					<NewsItem
+						photo={element.photo}
+						title={element.title}
+						description={element.description}
+						key={index}
+					/>
+				))}
+			</div>
 		</div>
 	);
 };

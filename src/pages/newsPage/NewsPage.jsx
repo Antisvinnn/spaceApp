@@ -29,7 +29,7 @@ const NewsPage = () => {
 	const newsData = useSelector((store) => store.news.newsData);
 
 	const decodeImage = () => {
-		const file = new Blob([JSON.stringify(newsData.data)], { type: 'application/*' });
+		const file = new Blob([JSON.stringify(newsData?.data)], { type: 'application/*' });
 		FileSaver.saveAs(file, 'picture.png');
 		return <img scr={file} alt='img' />;
 	};
@@ -100,7 +100,7 @@ const NewsPage = () => {
 							</Button>
 						</FormItem>
 					</Form>
-					{newsData.data && decodeImage()}
+					{/* {newsData.data && decodeImage()} */}
 				</div>
 			);
 		}
