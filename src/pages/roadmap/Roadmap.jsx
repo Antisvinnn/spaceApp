@@ -11,19 +11,9 @@ const Roadmap = () => {
 		<>
 			<Header />
 			<Switch>
-				<Route
-					path='/news/:newsPage'
-					render={() => {
-						return <NewsPage />;
-					}}
-				/>
+				<Route path='/news/:newsPage' component={NewsPage} />
 				<Route path='/contacts' component={Contacts} />
-				<Route
-					path='/news'
-					render={() => {
-						return <News />;
-					}}
-				/>
+				<Route path='/news' component={News} />
 				<Route path='/' component={Main} />
 			</Switch>
 		</>
