@@ -2,4 +2,51 @@ $backColor: black;
 
 .container {
 	color: $backColor;
+	height: 90vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.personalCard {
+	border-radius: 100px;
+	width: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	background-color: rgba(0, 255, 255, 0.171);
+	background: linear-gradient(270deg, rgba(18, 177, 177, 0.171), rgb(0, 140, 255));
+	padding: 30px;
+}
+
+.cardInfo {
+	display: flex;
+	flex-direction: column;
+}
+
+.title {
+	color: rgb(4, 63, 255);
+	font-size: 27px;
+	margin-bottom: 15px;
+}
+
+.mainTitle {
+	font-size: 36px;
+	color: black;
+}
+
+.mail {
+	border: none;
+	background-color: transparent;
+	padding: 0;
+}
+
+.mail:hover {
+	color: rgb(0, 97, 153);
+}
+
+.personalPhoto {
+	width: 39vh;
+	height: 50vh;
+	border-radius: 100px;
 }

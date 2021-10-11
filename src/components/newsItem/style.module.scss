@@ -1,0 +1,25 @@
+.containerToNewsItem {
+	padding: 40px;
+	width: 100%;
+	// height: 100%;
+	height: 35vh;
+	background-color: rgb(67, 57, 116);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	border-radius: 60px;
+	text-align: justify;
+	color: white;
+	transition: 0.3s linear;
+}
+
+.containerToNewsItem:hover {
+	background: linear-gradient(45deg, #b90091, #009ac0);
+	transform: scale(1.03);
+}
+
+.photo {
+	width: 100px;
+	height: 100px;
+}
