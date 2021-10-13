@@ -39,7 +39,7 @@ const newsReducer = (state = initialState, { type, payload }) => {
 			message.success('server responsed');
 			return newState;
 		default:
-			return state;
+			return newState;
 	}
 };
 
