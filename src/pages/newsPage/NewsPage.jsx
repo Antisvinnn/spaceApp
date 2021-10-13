@@ -1,17 +1,19 @@
-import { Button, Input, Spin } from 'antd';
-import Form from 'antd/lib/form/Form';
-import FormItem from 'antd/lib/form/FormItem';
+import { Spin } from 'antd';
+// import Form from 'antd/lib/form/Form';
+// import FormItem from 'antd/lib/form/FormItem';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import YouTube from 'react-youtube';
 import AsteroidItem from '../../components/asteroidItem/AsteroidItem';
+import PatentItem from '../../components/patentItem/PatentItem';
 import {
 	APODAction,
 	AsteroidAction,
-	EarthImageryAction,
+	// EarthImageryAction,
+	TechTransferAction,
 } from '../../redux/actions/newsAction';
-import FileSaver from 'file-saver';
+// import FileSaver from 'file-saver';
 
 import style from './style.module.scss';
 
@@ -22,17 +24,19 @@ const NewsPage = () => {
 			dispatch(APODAction());
 		} else if (newsPage === 'Asteroids-NeoWs') {
 			dispatch(AsteroidAction());
+		} else if (newsPage === 'NasaPatents') {
+			dispatch(TechTransferAction());
 		}
 	}, []);
 	const { newsPage } = useParams();
 	const newsLoading = useSelector((store) => store.news.loading);
 	const newsData = useSelector((store) => store.news.newsData);
 
-	const decodeImage = () => {
-		const file = new Blob([JSON.stringify(newsData?.data)], { type: 'application/*' });
-		FileSaver.saveAs(file, 'picture.png');
-		return <img scr={file} alt='img' />;
-	};
+	// const decodeImage = () => {
+	// 	const file = new Blob([JSON.stringify(newsData?.data)], { type: 'application/*' });
+	// 	FileSaver.saveAs(file, 'picture.png');
+	// 	return <img scr={file} alt='img' />;
+	// };
 
 	const renderNewsPage = (newsPage) => {
 		if (
@@ -64,6 +68,11 @@ const NewsPage = () => {
 					</div>
 				</div>
 			);
+		} else if (newsPage === 'NasaPatents') {
+			let patents = newsData.data?.results;
+			return patents?.map((elem) => {
+				return <PatentItem nameOfPatent={elem[2]} description={elem[3]} />;
+			});
 		} else if (newsPage === 'Asteroids-NeoWs') {
 			let asteroids = newsData.data?.near_earth_objects?.map((element, index) => (
 				<AsteroidItem
@@ -74,36 +83,37 @@ const NewsPage = () => {
 				/>
 			));
 			return <div className={style.asteroidsContainer}>{asteroids}</div>;
-		} else if (newsPage === 'Earth-Imagery') {
-			return (
-				<div className={style.EarthImageryContainer}>
-					<p className={style.EarthImageryTitle}>
-						{newsPage} - заполните поля для ввода информации
-					</p>
-					<Form
-						onFinish={(values) => {
-							dispatch(EarthImageryAction(values.longitude, values.latitude, values.date));
-						}}
-					>
-						<FormItem name='longitude'>
-							<Input placeholder='Долгота' />
-						</FormItem>
-						<FormItem name='latitude'>
-							<Input placeholder='Широта' />
-						</FormItem>
-						<FormItem name='date'>
-							<Input placeholder='Дата (YYYY-MM-DD)' />
-						</FormItem>
-						<FormItem name='button'>
-							<Button htmlType='submit' type='primary' className={style.EarthImageryButton}>
-								Enter the info
-							</Button>
-						</FormItem>
-					</Form>
-					{/* {newsData.data && decodeImage()} */}
-				</div>
-			);
 		}
+		// else if (newsPage === 'Earth-Imagery') {
+		// 	return (
+		// 		<div className={style.EarthImageryContainer}>
+		// 			<p className={style.EarthImageryTitle}>
+		// 				{newsPage} - заполните поля для ввода информации
+		// 			</p>
+		// 			<Form
+		// 				onFinish={(values) => {
+		// 					dispatch(EarthImageryAction(values.longitude, values.latitude, values.date));
+		// 				}}
+		// 			>
+		// 				<FormItem name='longitude'>
+		// 					<Input placeholder='Долгота' />
+		// 				</FormItem>
+		// 				<FormItem name='latitude'>
+		// 					<Input placeholder='Широта' />
+		// 				</FormItem>
+		// 				<FormItem name='date'>
+		// 					<Input placeholder='Дата (YYYY-MM-DD)' />
+		// 				</FormItem>
+		// 				<FormItem name='button'>
+		// 					<Button htmlType='submit' type='primary' className={style.EarthImageryButton}>
+		// 						Enter the info
+		// 					</Button>
+		// 				</FormItem>
+		// 			</Form>
+		// 			{/* {newsData.data && decodeImage()} */}
+		// 		</div>
+		// 	);
+		// }
 	};
 
 	return (

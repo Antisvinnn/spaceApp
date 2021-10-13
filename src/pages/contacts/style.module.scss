@@ -3,14 +3,15 @@ $backColor: black;
 .container {
 	color: $backColor;
 	height: 90vh;
+	background: url('https://wallpapershome.ru/images/wallpapers/kosmos-3840x2160-zvezdi-6592.jpg');
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
 .personalCard {
-	border-radius: 100px;
-	width: 50%;
+	border-radius: 50px;
+	width: 40%;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
@@ -25,7 +26,7 @@ $backColor: black;
 }
 
 .title {
-	color: rgb(4, 63, 255);
+	color: rgb(0, 15, 65);
 	font-size: 27px;
 	margin-bottom: 15px;
 }
@@ -42,11 +43,11 @@ $backColor: black;
 }
 
 .mail:hover {
-	color: rgb(0, 97, 153);
+	color: rgb(0, 162, 255);
 }
 
 .personalPhoto {
-	width: 39vh;
-	height: 50vh;
-	border-radius: 100px;
+	width: 30vh;
+	height: 40vh;
+	border-radius: 50px;
 }

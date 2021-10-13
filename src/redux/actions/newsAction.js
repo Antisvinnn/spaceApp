@@ -2,9 +2,14 @@ import {
 	NEWS_REQUEST,
 	APOD_REQUEST,
 	ASTEROID_REQUEST,
-	EARTH_IMAGERY_REQUEST,
+	// EARTH_IMAGERY_REQUEST,
+	TECH_TRANSFER_REQUEST,
 } from '../actionsTypes/news';
-import { APODRequest, AsteroidsRequest, EarthImagery } from '../services/newsService';
+import {
+	APODRequest,
+	AsteroidsRequest,
+	/*EarthImagery, */ TechTransferRequest,
+} from '../services/newsService';
 import { message } from 'antd';
 
 export const APODAction = () => {
@@ -31,13 +36,25 @@ export const AsteroidAction = () => {
 	};
 };
 
-export const EarthImageryAction = (lon, lat, date) => {
+// export const EarthImageryAction = (lon, lat, date) => {
+// 	return async (dispatch) => {
+// 		try {
+// 			dispatch({ type: NEWS_REQUEST });
+// 			const data = await EarthImagery(lon, lat, date);
+// 			console.log(data);
+// 			dispatch({ type: EARTH_IMAGERY_REQUEST, payload: data });
+// 		} catch {
+// 			message.error('error');
+// 		}
+// 	};
+// };
+
+export const TechTransferAction = () => {
 	return async (dispatch) => {
 		try {
 			dispatch({ type: NEWS_REQUEST });
-			const data = await EarthImagery(lon, lat, date);
-			console.log(data);
-			dispatch({ type: EARTH_IMAGERY_REQUEST, payload: data });
+			const data = await TechTransferRequest();
+			dispatch({ type: TECH_TRANSFER_REQUEST, payload: data });
 		} catch {
 			message.error('error');
 		}
