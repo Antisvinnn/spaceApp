@@ -68,6 +68,18 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+::selection {
+	background: rgb(31, 0, 172);
+}
+
+::-webkit-scrollbar {
+	background: rgb(39, 40, 54);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: rgb(179, 179, 179);
+}
+
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

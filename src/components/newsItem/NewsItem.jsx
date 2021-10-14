@@ -6,13 +6,12 @@ const NewsItem = ({ photo, title, description }) => {
 	let titleToLink = title.split(' ').join('');
 
 	return (
-		<Link to={`/news/${titleToLink}`}>
-			<div className={style.containerToNewsItem}>
+		<div className={style.containerToNewsItem}>
+			<Link className={style.link} to={`/news/${titleToLink}`}>
 				<img className={style.photo} src={photo} alt='img' />
 				<p className={style.title}>{title}</p>
-				<div className={style.description}>{description}</div>
-			</div>
-		</Link>
+			</Link>
+		</div>
 	);
 };
 

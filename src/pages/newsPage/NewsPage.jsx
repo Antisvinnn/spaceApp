@@ -70,9 +70,13 @@ const NewsPage = () => {
 			);
 		} else if (newsPage === 'NasaPatents') {
 			let patents = newsData.data?.results;
-			return patents?.map((elem) => {
-				return <PatentItem nameOfPatent={elem[2]} description={elem[3]} />;
-			});
+			return (
+				<div className={style.patentsContainer}>
+					{patents?.map((elem) => {
+						return <PatentItem nameOfPatent={elem[2]} description={elem[3]} photo={elem[10]} />;
+					})}
+				</div>
+			);
 		} else if (newsPage === 'Asteroids-NeoWs') {
 			let asteroids = newsData.data?.near_earth_objects?.map((element, index) => (
 				<AsteroidItem

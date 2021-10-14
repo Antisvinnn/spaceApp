@@ -1,11 +1,20 @@
 .asteroidContainer {
 	padding: 20px;
-	background-color: cadetblue;
-	border-radius: 30px;
+	background-color: #8cd5ef;
+	border-radius: 15px;
 	transition: 0.15s linear;
+	height: 15vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+}
+
+.asteroidContainer > p {
+	margin: 0;
 }
 
 .asteroidContainer:hover {
-	background-color: rgb(83, 138, 139);
+	background-color: rgb(124, 189, 189);
 	transform: scale(1.07);
 }
