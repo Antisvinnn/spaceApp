@@ -18,6 +18,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+	color: white;
+	background: url('https://wallpapershome.ru/images/wallpapers/kosmos-3840x2160-zvezdi-6592.jpg');
 }
 
 .asteroidsContainer {
@@ -29,6 +31,16 @@
 	grid-gap: 20px;
 	text-align: center;
 	align-items: center;
+	background-color: #011224;
+}
+
+.patentsContainer {
+	padding: 20px 100px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 40px;
+	background-color: #011224;
+	// background: url('https://wallpapershome.ru/images/wallpapers/kosmos-3840x2160-zvezdi-6592.jpg');
 }
 
 .image {

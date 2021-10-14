@@ -8,7 +8,9 @@ class Header extends React.Component {
 		return (
 			<header className={style.header}>
 				<div className={style.headerContainer}>
-					<img className={style.headerLogo} src={logo} alt='img' />
+					<Link to='/'>
+						<img className={style.headerLogo} src={logo} alt='img' />
+					</Link>
 					<nav className={style.nav}>
 						<Link className={style.navLink} to='/'>
 							Главная
