@@ -1,3 +1,5 @@
+@import '../../variables/mixins.scss';
+
 .asteroidContainer {
 	padding: 20px;
 	background-color: #8cd5ef;
@@ -17,4 +19,11 @@
 .asteroidContainer:hover {
 	background-color: rgb(124, 189, 189);
 	transform: scale(1.07);
+}
+
+.asteroidName,
+.asteroidMagnitude,
+.asteroidDistance {
+	@include standartText;
+	color: black;
 }

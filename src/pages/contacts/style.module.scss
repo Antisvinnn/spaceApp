@@ -1,3 +1,4 @@
+@import '../../variables/mixins.scss';
 $backColor: black;
 
 .container {
@@ -28,15 +29,11 @@ $backColor: black;
 
 .title {
 	// color: rgb(0, 15, 65);
-	color: rgb(223, 223, 223);
-	font-size: 27px;
-	margin-bottom: 15px;
+	@include contactsPoints;
 }
 
 .mainTitle {
-	font-size: 36px;
-	color: rgb(255, 255, 255);
-	text-decoration: underline;
+	@include contactsMainTitle;
 }
 
 .mail {

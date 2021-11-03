@@ -1,7 +1,7 @@
 import { message } from 'antd';
 import { useEffect } from 'react';
-import NewsItem from '../../components/newsItem/NewsItem';
-import newsConfig from '../../helper/newsConfig';
+import NewsItem from '@components/newsItem/NewsItem';
+import newsConfig from '@helper/newsConfig';
 import style from './style.module.scss';
 
 const News = () => {

@@ -1,4 +1,4 @@
-import FirstScreen from '../../components/firstScreen/FirstScreen';
+import FirstScreen from '@components/firstScreen/FirstScreen';
 import style from './style.module.scss';
 
 const Main = () => {

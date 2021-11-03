@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { apiKey } from '../../helper/apiKey';
+import { apiKey } from '@helper/apiKey';
 
 export const APODRequest = () => {
 	return axios.get(`planetary/apod?${apiKey}`);

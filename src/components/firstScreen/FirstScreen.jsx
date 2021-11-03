@@ -1,5 +1,5 @@
 import style from './style.module.scss';
-import Timer from '../timer/Timer';
+import Timer from '@components/timer/Timer';
 
 const FirstScreen = () => {
 	return (
