@@ -1,5 +1,5 @@
-import astronaut from '../assets/images/cosmonaut.png';
-import moon from '../assets/images/moon.png';
+import astronaut from '@assets/images/cosmonaut.png';
+import moon from '@assets/images/moon.png';
 
 const newsConfig = [
 	{

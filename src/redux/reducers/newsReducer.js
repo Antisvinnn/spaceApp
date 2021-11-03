@@ -5,7 +5,7 @@ import {
 	ASTEROID_REQUEST,
 	// EARTH_IMAGERY_REQUEST,
 	TECH_TRANSFER_REQUEST,
-} from '../actionsTypes/news';
+} from '@redux/actionsTypes/news';
 
 const initialState = {
 	loading: false,

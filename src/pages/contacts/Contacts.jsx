@@ -1,5 +1,5 @@
 import style from './style.module.scss';
-import photo from '../../assets/images/personalImage.jpg';
+import photo from '@assets/images/personalImage.jpg';
 import Clipboard from 'react-clipboard.js';
 import { message } from 'antd';
 
@@ -13,10 +13,13 @@ const Contacts = () => {
 					<a href='https://t.me/antisvin' className={style.title}>
 						Telegram
 					</a>
-					<a href='https://t.me/antisvin' className={style.title}>
+					<a href='https://vk.com/antisvinnn' className={style.title}>
 						VK
 					</a>
-					<a href='https://t.me/antisvin' className={style.title}>
+					<a
+						href='https://www.linkedin.com/in/vitaly-tochenyy-1330a1218/'
+						className={style.title}
+					>
 						LinkedIN
 					</a>
 					<Clipboard

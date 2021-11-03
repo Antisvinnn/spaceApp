@@ -5,14 +5,14 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import YouTube from 'react-youtube';
-import AsteroidItem from '../../components/asteroidItem/AsteroidItem';
-import PatentItem from '../../components/patentItem/PatentItem';
+import AsteroidItem from '@components/asteroidItem/AsteroidItem';
+import PatentItem from '@components/patentItem/PatentItem';
 import {
 	APODAction,
 	AsteroidAction,
 	// EarthImageryAction,
 	TechTransferAction,
-} from '../../redux/actions/newsAction';
+} from '@redux/actions/newsAction';
 // import FileSaver from 'file-saver';
 
 import style from './style.module.scss';
